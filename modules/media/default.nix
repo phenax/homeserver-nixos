@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 let
   config = import ./config.nix;
 in
 {
+  imports = [ ./torrent.nix ];
+
   systemd.tmpfiles.rules = [
     "d ${config.mediaBaseDir} 0770 - ${config.group} - -"
     "d ${config.downloadsDir} 0770 - ${config.group} - -"
@@ -44,30 +46,5 @@ in
     enable = true;
     openFirewall = true;
     group = config.group;
-  };
-
-  services.transmission = {
-    enable = true;
-    group = config.group;
-    settings = {
-      "download-dir" = config.downloadsDir;
-      "download-queue-enabled" = true;
-      "download-queue-size" = 5;
-      "peer-port" = 51413;
-      "peer-port-random-high" = 65535;
-      "peer-port-random-low" = 49152;
-      "prefetch-enabled" = true;
-      "rename-partial-files" = true;
-      "rpc-authentication-required" = false;
-      "rpc-bind-address" = "127.0.0.1";
-      "rpc-enabled" = true;
-      "rpc-port" = 9091;
-      "rpc-whitelist-enabled" = true;
-      "script-torrent-done-enabled" = false;
-      "start-added-torrents" = true;
-      "trash-original-torrent-files" = false;
-      "umask" = 18;
-      "utp-enabled" = true;
-    };
   };
 }

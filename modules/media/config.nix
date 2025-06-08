@@ -10,6 +10,7 @@ rec {
   sonarrPort = 8989;
   prowlarrPort = 9696;
   jellyfinPort = 8096;
+  transmissionPort = 9091;
 
   group = "multimedia";
 }
