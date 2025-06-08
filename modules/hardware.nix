@@ -1,4 +1,4 @@
-{ lib, pkgs, modulesPath, ... }:
+{ lib, modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -17,6 +17,22 @@
     cpu.intel.updateMicrocode = true;
   };
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  # Power/power state
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+  };
+  services.acpid.enable = true;
+  services.logind = {
+    powerKey = "ignore";
+    rebootKey = "ignore";
+    lidSwitch = "ignore";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "ignore";
+    hibernateKey = "ignore";
+    suspendKey = "ignore";
+  };
 
   # Bootloader
   boot.loader = {
@@ -47,8 +63,4 @@
   swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
 
   networking.useDHCP = lib.mkDefault true;
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "powersave";
-  };
 }

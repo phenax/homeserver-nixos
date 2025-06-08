@@ -9,7 +9,7 @@ config_sync() {
   # ssh "$SSH_TARGET" sh -c "nixos-rebuild build --flake 'path:/home/bacchus/nixos#bacchus'"
 }
 
-run_ssh() { ssh "$SSH_TARGET" "$@"; }
+run_ssh() { ssh -t "$SSH_TARGET" "$@"; }
 
 cmd="$1"; shift;
 case "$cmd" in

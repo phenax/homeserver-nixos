@@ -32,16 +32,6 @@
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # services.logind = {
-  #   powerKey = "ignore";
-  #   rebootKey = "ignore";
-  #   lidSwitch = "ignore";
-  #   lidSwitchDocked = "ignore";
-  #   lidSwitchExternalPower = "ignore";
-  #   hibernateKey = "ignore";
-  #   suspendKey = "ignore";
-  # };
-
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
