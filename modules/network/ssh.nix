@@ -5,7 +5,10 @@ in {
   services.sshd.enable = true;
 
   # Auth
-  # TODO: dont allow via password
-  # openssh.authorizedKeys.keys = private.ssh.authorizedKeys;
-  services.openssh.settings.PermitRootLogin = "yes"; 
+  users.users.bacchus.openssh.authorizedKeys.keys = private.ssh.authorizedKeys;
+  services.openssh.settings = {
+    PermitRootLogin = "no";
+    PasswordAuthentication = false;
+    ChallengeResponseAuthentication = false;
+  };
 }

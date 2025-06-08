@@ -7,9 +7,7 @@ in {
   networking = {
     hostName = "bacchus";
 
-    firewall = {
-      enable = true;
-    };
+    firewall.enable = true;
 
     networkmanager = {
       enable = true;
