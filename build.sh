@@ -2,21 +2,21 @@
 set -euo pipefail
 
 getconfig() {
-  nix eval --impure --expr "(import ./config.private.nix)$@" | jq -r
+  nix eval --impure --expr "(import ./settings.nix { lib = (import <nixpkgs> {}).lib; })$@" | jq -r
 }
 
-SSH_HOST="$(getconfig .ssh.host)"
-SSH_PORT="$(getconfig .ssh.port)"
+SSH_HOST="$(getconfig .network.host)"
+SSH_PORT="$(getconfig .network.ports.ssh)"
 SSH_TARGET="bacchus@$SSH_HOST"
 SCRIPT_PATH="$(readlink -f "$0")"
 
 run_ssh() { ssh -t "$SSH_TARGET" -p "$SSH_PORT" "$@"; }
-copy() { rsync -r -e "ssh -p $SSH_PORT" "$@"; }
+copy() { rsync -ravh --delete --exclude '.git' -e "ssh -p $SSH_PORT" "$@"; }
 waittostart() {
   echo "Waiting...";
   until timeout 2 nc -z "$SSH_HOST" "$SSH_PORT" 2> /dev/null; do
     echo -n '.';
-    sleep 2
+    sleep 1
   done;
   echo -e "\nReady to connect";
 }
@@ -47,6 +47,8 @@ case "$cmd" in
   restart) restart && sleep 3 && waittostart ;;
   wait) waittostart ;;
   clean) run_ssh sudo nix-collect-garbage -d ;;
+  top) run_ssh btm ;;
+  fs) run_ssh lf ;;
   _) chaincmds "$@" ;;
   *) echo "Invalid cmd: $1" && exit 1 ;;
 esac

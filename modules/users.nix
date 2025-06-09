@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
-  private = import ../config.private.nix;
-in {
-  users.users.root.password = private.passwords.root;
+  settings = import ../settings.nix { inherit lib; };
+in
+{
+  users.users.root.password = settings.passwords.root;
 
   users.users.bacchus = {
     isNormalUser = true;

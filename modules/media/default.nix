@@ -1,25 +1,25 @@
-{ ... }:
+{ lib, ... }:
 let
-  config = import ./config.nix;
+  settings = import ../../settings.nix { inherit lib; };
 in
 {
   imports = [ ./torrent.nix ];
 
   systemd.tmpfiles.rules = [
-    "d ${config.mediaBaseDir} 0770 - ${config.group} - -"
-    "d ${config.downloadsDir} 0770 - ${config.group} - -"
-    "d ${config.tvDownloads} 0770 - ${config.group} - -"
-    "d ${config.moviesDownloads} 0770 - ${config.group} - -"
+    "d ${settings.media.baseDir} 0770 - ${settings.media.group} - -"
+    "d ${settings.media.downloadsDir} 0770 transmission ${settings.media.group} - -"
+    "d ${settings.media.tvDir} 0770 sonarr ${settings.media.group} - -"
+    "d ${settings.media.moviesDir} 0770 radarr ${settings.media.group} - -"
   ];
-  users.groups."${config.group}" = { };
-  users.users.bacchus.extraGroups = [ config.group ];
+  users.groups."${settings.media.group}" = { };
+  users.users.bacchus.extraGroups = [ settings.media.group ];
 
   services.sonarr = {
     enable = true;
     openFirewall = true;
-    group = config.group;
+    group = settings.media.group;
     settings = {
-      server.port = config.sonarrPort;
+      server.port = settings.network.ports.sonarr;
       auth.enabled = false;
     };
   };
@@ -27,9 +27,9 @@ in
   services.radarr = {
     enable = true;
     openFirewall = true;
-    group = config.group;
+    group = settings.media.group;
     settings = {
-      server.port = config.radarrPort;
+      server.port = settings.network.ports.radarr;
       auth.enabled = false;
     };
   };
@@ -38,13 +38,13 @@ in
     enable = true;
     openFirewall = true;
     settings = {
-      server.port = config.prowlarrPort;
+      server.port = settings.network.ports.prowlarr;
     };
   };
 
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-    group = config.group;
+    group = settings.media.group;
   };
 }

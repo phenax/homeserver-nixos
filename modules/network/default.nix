@@ -1,7 +1,8 @@
-{ ... }:
+{ lib, ... }:
 let
-  private = import ../../config.private.nix;
-in {
+  settings = import ../../settings.nix { inherit lib; };
+in
+{
   imports = [ ./ssh.nix ];
 
   networking = {
@@ -21,12 +22,12 @@ in {
           };
           wifi = {
             mode = "infrastructure";
-            ssid = private.wireless.ssid;
+            ssid = settings.network.wireless.ssid;
           };
           wifi-security = {
             auth-alg = "open";
             key-mgmt = "wpa-psk";
-            psk = private.wireless.password;
+            psk = settings.network.wireless.password;
           };
         };
       };

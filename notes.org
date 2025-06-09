@@ -1,0 +1,18 @@
+** Current
+- [ ] Home dashboard ([[https://github.com/tariqbuilds/linux-dash]])
+- [ ] Make autoconnect via networkmanager work consistently (higher frequency)
+- [ ] DNS server (dnsmasq, bind, octodns, nsd, [[https://github.com/nix-community/dns.nix]])
+
+** Later
+- [ ] Syncthing
+- [ ] Jellyfin library for photos (shared/private)
+- [ ] NAS
+- [ ] [[https://ntfy.sh]]
+- [ ] Think of where to place the server
+
+** Maybe
+- [ ] Git bare repos (pass/notes)
+- [ ] Auto-updating
+- [ ] Move mail?
+- [ ] Expose dns via dynamic dns [[https://www.duckdns.org/]]?
+- [ ] Move rss feed reader?

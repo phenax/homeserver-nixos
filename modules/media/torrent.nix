@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
-  config = import ./config.nix;
+  settings = import ../../settings.nix { inherit lib; };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -9,10 +9,10 @@ in
 
   services.transmission = {
     enable = true;
-    group = config.group;
+    group = settings.media.group;
     openRPCPort = true;
     settings = {
-      "download-dir" = config.downloadsDir;
+      "download-dir" = settings.media.downloadsDir;
       "download-queue-enabled" = true;
       "download-queue-size" = 5;
       "peer-port" = 51413;
@@ -21,9 +21,9 @@ in
       "prefetch-enabled" = true;
       "rename-partial-files" = true;
       "rpc-authentication-required" = false;
-      "rpc-bind-address" = "0.0.0.0";
+      "rpc-bind-address" = if settings.network.exposeTransmissionRPC then "0.0.0.0" else "127.0.0.1";
       "rpc-enabled" = true;
-      "rpc-port" = config.transmissionPort;
+      "rpc-port" = settings.network.ports.transmissionRPC;
       "rpc-whitelist-enabled" = false;
       "script-torrent-done-enabled" = false;
       "start-added-torrents" = true;
@@ -34,6 +34,6 @@ in
   };
 
   systemd.services.transmission.unitConfig = {
-    RequiresMountsFor = config.mediaBaseDir;
+    RequiresMountsFor = settings.media.baseDir;
   };
 }
