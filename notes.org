@@ -1,14 +1,13 @@
 ** Current
-- [ ] Home dashboard ([[https://github.com/tariqbuilds/linux-dash]])
-- [ ] Make autoconnect via networkmanager work consistently (higher frequency)
 - [ ] DNS server (dnsmasq, bind, octodns, nsd, [[https://github.com/nix-community/dns.nix]])
+- [ ] Syncthing
 
 ** Later
-- [ ] Syncthing
 - [ ] Jellyfin library for photos (shared/private)
 - [ ] NAS
 - [ ] [[https://ntfy.sh]]
 - [ ] Think of where to place the server
+- [ ] Make autoconnect via networkmanager work consistently (higher frequency)
 
 ** Maybe
 - [ ] Git bare repos (pass/notes)

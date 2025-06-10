@@ -5,16 +5,16 @@ getconfig() {
   nix eval --impure --expr "(import ./settings.nix { lib = (import <nixpkgs> {}).lib; })$@" | jq -r
 }
 
-SSH_HOST="$(getconfig .network.host)"
+HOME_HOST="$(getconfig .network.host)"
 SSH_PORT="$(getconfig .network.ports.ssh)"
-SSH_TARGET="bacchus@$SSH_HOST"
+SSH_TARGET="bacchus@$HOME_HOST"
 SCRIPT_PATH="$(readlink -f "$0")"
 
 run_ssh() { ssh -t "$SSH_TARGET" -p "$SSH_PORT" "$@"; }
 copy() { rsync -ravh --delete --exclude '.git' -e "ssh -p $SSH_PORT" "$@"; }
 waittostart() {
   echo "Waiting...";
-  until timeout 2 nc -z "$SSH_HOST" "$SSH_PORT" 2> /dev/null; do
+  until timeout 2 nc -z "$HOME_HOST" "$SSH_PORT" 2> /dev/null; do
     echo -n '.';
     sleep 1
   done;
@@ -39,6 +39,13 @@ chaincmds() {
   done
 }
 
+gen_test_dash() {
+  nix eval --impure \
+    --expr 'import ./modules/dashboard/dashboard-template.nix { title = "Dashboard"; links = [{ title = "Google"; url = "https://google.com"; key = "g"; } { title = "DuckDuckGo"; url = "https://duckduckgo.com"; key = "d"; color = "#4c82cf"; }]; }' \
+  | jq -r > index.ignore.html
+}
+open_test_dash() { brave "file://$PWD/index.ignore.html"; }
+
 cmd="$1"; shift;
 case "$cmd" in
   sync) config_sync ;;
@@ -49,7 +56,10 @@ case "$cmd" in
   clean) run_ssh sudo nix-collect-garbage -d ;;
   top) run_ssh btm ;;
   fs) run_ssh lf ;;
+  test-dash) gen_test_dash ;;
+  open-test-dash) open_test_dash ;;
+  dash) brave "http://$HOME_HOST" ;;
   _) chaincmds "$@" ;;
-  *) echo "Invalid cmd: $1" && exit 1 ;;
+  *) echo "Invalid cmd: $cmd" && exit 1 ;;
 esac
 
