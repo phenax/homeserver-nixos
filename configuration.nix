@@ -2,8 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
-
+{ pkgs, lib, ... }:
+let
+  settings = import ./settings.nix { inherit lib; };
+  ports = settings.network.ports;
+  host = settings.network.host;
+in
 {
   imports = [
     ./modules/hardware.nix
@@ -11,7 +15,19 @@
     ./modules/network
     ./modules/media
     ./modules/dashboard
+    ./modules/service-router.service.nix
   ];
+
+  services.service-router = {
+    enable = true;
+    routes = {
+      "home.local" = { inherit host; port = ports.dashboard; };
+      "sonarr.local" = { inherit host; port = ports.sonarr; };
+      "radarr.local" = { inherit host; port = ports.radarr; };
+      "prowlarr.local" = { inherit host; port = ports.prowlarr; };
+      "jellyfin.local" = { inherit host; port = ports.jellyfin; };
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -21,6 +37,7 @@
     neovim
     lf
     util-linux
+    dig
   ];
 
   systemd.extraConfig = ''DefaultLimitNOFILE=65536'';

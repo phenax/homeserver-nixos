@@ -11,7 +11,7 @@ in
     "d ${settings.media.tvDir} 0770 sonarr ${settings.media.group} - -"
     "d ${settings.media.moviesDir} 0770 radarr ${settings.media.group} - -"
   ];
-  users.groups."${settings.media.group}" = { };
+  users.groups.${settings.media.group} = { };
   users.users.bacchus.extraGroups = [ settings.media.group ];
 
   services.sonarr = {

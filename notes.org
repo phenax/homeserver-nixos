@@ -1,9 +1,9 @@
 ** Current
-- [ ] DNS server (dnsmasq, bind, octodns, nsd, [[https://github.com/nix-community/dns.nix]])
 - [ ] Syncthing
+- [ ] Jellyfin library for photos (shared/private)
+- [ ] Jellyfin library for music?
 
 ** Later
-- [ ] Jellyfin library for photos (shared/private)
 - [ ] NAS
 - [ ] [[https://ntfy.sh]]
 - [ ] Think of where to place the server

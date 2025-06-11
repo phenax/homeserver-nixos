@@ -32,7 +32,7 @@ in
   config = {
     services.nginx = mkIf cfg.enable {
       enable = true;
-      virtualHosts."${cfg.host}" = {
+      virtualHosts.${cfg.host} = {
         listen = [ { addr = toString cfg.port; } ];
         locations."/" = {
           root = pageDir;

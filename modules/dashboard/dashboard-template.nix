@@ -5,12 +5,11 @@ let
     if hasAttr attr link then value else def;
 
   linkHTML = link: ''
-    <div>
-      <a href="${link.url}" class="card" style="${withLinkAttr link "color" "" "--color-card-accent: ${link.color}"}">
-        ${link.title} ${if hasAttr "key" link then "(${link.key})" else ""}
-        <div class="card-link">${link.url}</div>
-      </a>
-    </div>
+    <a href="${link.url}" class="card" style="${withLinkAttr link "color" "" "--color-card-accent: ${link.color}"}">
+      ${link.title} ${if hasAttr "key" link then "(${link.key})" else ""}
+      <div class="card-link">${link.url}</div>
+      ${if hasAttr "altUrl" link then ''<div class="card-link">(Alt: ${link.altUrl})</div>'' else ""}
+    </a>
   '';
 
   script = ''
@@ -85,6 +84,14 @@ let
       font-size: 0.5em;
       padding-top: 1em;
       color: gray;
+    }
+    button {
+      background: none;
+      padding: 0;
+      text-decoration: underline;
+      color: gray;
+      margin: 0;
+      border: 0;
     }
   '';
 

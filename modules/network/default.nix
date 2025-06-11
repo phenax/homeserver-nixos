@@ -3,7 +3,9 @@ let
   settings = import ../../settings.nix { inherit lib; };
 in
 {
-  imports = [ ./ssh.nix ];
+  imports = [
+    ./ssh.nix
+  ];
 
   networking = {
     hostName = "bacchus";

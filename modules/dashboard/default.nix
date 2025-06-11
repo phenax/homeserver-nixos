@@ -9,31 +9,43 @@ in
   services.bacchus-dashboard = {
     enable = true;
     openFirewall = true;
-    title = "Dashboard";
+    port = ports.dashboard;
+    title = "Bacchus Dashboard";
     links = [
       {
         title = "Jellyfin";
         key = "j";
-        url = "http://${settings.network.host}:${toString ports.jellyfin}";
+        url = "http://jellyfin.local";
+        altUrl = "http://${settings.network.host}:${toString ports.jellyfin}";
         color = "#AA5CC3";
       }
       {
         title = "Sonarr";
         key = "s";
-        url = "http://${settings.network.host}:${toString ports.sonarr}";
+        url = "http://sonarr.local";
+        altUrl = "http://${settings.network.host}:${toString ports.sonarr}";
         color = "#4c82cf";
       }
       {
         title = "Radarr";
         key = "r";
-        url = "http://${settings.network.host}:${toString ports.radarr}";
+        url = "http://radarr.local";
+        altUrl = "http://${settings.network.host}:${toString ports.radarr}";
         color = "#fcbd00";
       }
       {
         title = "Prowlarr";
         key = "p";
-        url = "http://${settings.network.host}:${toString ports.prowlarr}";
+        url = "http://prowlarr.local";
+        altUrl = "http://${settings.network.host}:${toString ports.prowlarr}";
         color = "#ff9a7e";
+      }
+      {
+        title = "Syncthing";
+        key = "y";
+        url = "http://syncthing.local";
+        altUrl = "http://${settings.network.host}:${toString ports.syncthing}";
+        color = "#0891d1";
       }
     ];
   };

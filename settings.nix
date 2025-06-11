@@ -4,6 +4,7 @@ let
 in lib.recursiveUpdate privateSettings rec {
   network = {
     ports = {
+      dashboard = 80;
       ssh = 22;
       radarr = 7878;
       sonarr = 8989;

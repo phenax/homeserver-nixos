@@ -21,13 +21,21 @@ waittostart() {
   echo -e "\nReady to connect";
 }
 
+copy_in() { copy "$1" "$SSH_TARGET:$2"; }
+copy_out() { copy "$SSH_TARGET:$1" "$2"; }
+
 config_sync() {
-  copy "$SSH_TARGET:~/nixos/flake.lock" .;
-  copy . "$SSH_TARGET:~/nixos";
+  copy_out '~/nixos/flake.lock' .;
+  copy_in . '~/nixos';
 }
 
 rebuild() {
   run_ssh sudo nixos-rebuild switch --flake 'path:/home/bacchus/nixos#bacchus';
+}
+
+update_system() {
+  run_ssh nix flake update --flake 'path:/home/bacchus/nixos';
+  rebuild;
 }
 
 restart() { run_ssh sudo systemctl reboot; }
@@ -41,7 +49,7 @@ chaincmds() {
 
 gen_test_dash() {
   nix eval --impure \
-    --expr 'import ./modules/dashboard/dashboard-template.nix { title = "Dashboard"; links = [{ title = "Google"; url = "https://google.com"; key = "g"; } { title = "DuckDuckGo"; url = "https://duckduckgo.com"; key = "d"; color = "#4c82cf"; }]; }' \
+    --expr 'import ./modules/dashboard/dashboard-template.nix { title = "Dashboard"; links = [{ title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; } { title = "DuckDuckGo"; url = "https://duckduckgo.com"; key = "d"; color = "#4c82cf"; } { title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; } { title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; }]; }' \
   | jq -r > index.ignore.html
 }
 open_test_dash() { brave "file://$PWD/index.ignore.html"; }
@@ -51,6 +59,7 @@ case "$cmd" in
   sync) config_sync ;;
   run) run_ssh "$@" ;;
   build) rebuild ;;
+  update) update_system ;;
   restart) restart && sleep 3 && waittostart ;;
   wait) waittostart ;;
   clean) run_ssh sudo nix-collect-garbage -d ;;
@@ -59,6 +68,8 @@ case "$cmd" in
   test-dash) gen_test_dash ;;
   open-test-dash) open_test_dash ;;
   dash) brave "http://$HOME_HOST" ;;
+  copy_in) copy_in "$@" ;;
+  copy_out) copy_out "$@" ;;
   _) chaincmds "$@" ;;
   *) echo "Invalid cmd: $cmd" && exit 1 ;;
 esac
