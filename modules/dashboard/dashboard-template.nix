@@ -1,4 +1,4 @@
-{ title, links, ... }:
+{ title, links ? [], embedLink ? null, ... }:
 with builtins;
 let
   withLinkAttr = link: attr: def: value:
@@ -108,9 +108,7 @@ let
   '';
 
   headerHTML = ''
-    <header>
-      ${title}
-    </header>
+    <header>${title}</header>
   '';
 in
 ''
@@ -127,9 +125,11 @@ in
     <section class="links-container">
       ${concatStringsSep "" (map linkHTML links)}
     </section>
-    <section class="stats-container">
-      <iframe src="http://grafana.local/public-dashboards/4d3d386f6eb9475bb202fe793c0a72c3"></iframe>
-    </section>
+    ${if embedLink == null then "" else ''
+      <section class="stats-container">
+        <iframe src="${embedLink}"></iframe>
+      </section>
+    ''}
     <script>${script}</script>
   </body>
 </html>

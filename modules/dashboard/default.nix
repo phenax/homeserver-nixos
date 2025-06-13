@@ -11,6 +11,7 @@ in
     openFirewall = true;
     port = ports.dashboard;
     title = "Bacchus Dashboard";
+    embedLink = settings.grafana.dashboardEmbedLink;
     links = [
       {
         title = "Jellyfin";
