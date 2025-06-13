@@ -19,6 +19,7 @@ in {
         port = mkOption { type = types.int; };
         host = mkOption { type = types.str; default = "127.0.0.1"; };
         protocol = mkOption { type = types.str; default = "http"; };
+        nginx = mkOption { type = types.attrs; default = {}; };
       }; });
       default = {};
     };
@@ -27,10 +28,12 @@ in {
   config = lib.mkIf cfg.enable {
     services.nginx = {
       enable = true;
+      recommendedOptimisation = true;
       virtualHosts = lib.mapAttrs (_: val: {
-        locations."/" = {
+        locations."/" = if val.nginx == {} then {
           proxyPass = "${val.protocol}://${val.host}:${toString val.port}";
-        };
+          proxyWebsockets = true;
+        } else val.nginx;
       }) cfg.routes;
     };
 

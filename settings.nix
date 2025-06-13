@@ -8,18 +8,26 @@ in lib.recursiveUpdate privateSettings rec {
       ssh = 22;
       radarr = 7878;
       sonarr = 8989;
+      lidarr = 8686;
       prowlarr = 9696;
       jellyfin = 8096;
       transmissionRPC = 9091;
+      syncthing = 3141;
     };
     exposeTransmissionRPC = false;
   };
 
-  media = {
+  syncthing = {
+    baseDir = "/media/syncthing";
+    photosDir = "${syncthing.baseDir}/photos";
+  };
+
+  media = rec {
     baseDir = "/media";
-    downloadsDir = "${media.baseDir}/_downloads";
-    tvDir = "${media.baseDir}/tv";
-    moviesDir = "${media.baseDir}/movies";
+    downloadsDir = "${baseDir}/_downloads";
+    tvDir = "${baseDir}/tv";
+    moviesDir = "${baseDir}/movies";
+    musicDir = "${baseDir}/music";
     group = "multimedia";
   };
 }
