@@ -52,7 +52,7 @@ let
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       padding: 0 1rem;
       width: 100%;
-      margin: 1rem auto;
+      margin: 1rem auto 2rem;
       max-width: 1200px
     }
     .card {
@@ -93,6 +93,18 @@ let
       margin: 0;
       border: 0;
     }
+    .stats-container {
+      padding: 1rem;
+      border-top: 1px solid #1a1824;
+    }
+    .stats-container iframe {
+      width: 100%;
+      display: block;
+      min-height: 1100px;
+      height: 100%;
+      border: 2px solid #1a1824;
+      border-radius: 5px;
+    }
   '';
 
   headerHTML = ''
@@ -114,6 +126,9 @@ in
     ${headerHTML}
     <section class="links-container">
       ${concatStringsSep "" (map linkHTML links)}
+    </section>
+    <section class="stats-container">
+      <iframe src="http://grafana.local/public-dashboards/4d3d386f6eb9475bb202fe793c0a72c3"></iframe>
     </section>
     <script>${script}</script>
   </body>

@@ -21,6 +21,7 @@ in {
         protocol = mkOption { type = types.str; default = "http"; };
         basePath = mkOption { type = types.str; default = ""; };
         nginx = mkOption { type = types.attrs; default = {}; };
+        extraOptions = mkOption { type = types.attrs; default = {}; };
       }; });
       default = {};
     };
@@ -30,13 +31,17 @@ in {
     services.nginx = {
       enable = true;
       recommendedOptimisation = true;
-      virtualHosts = lib.mapAttrs (_: val: {
-        locations."/" = if val.nginx == {} then {
-          proxyPass =
-            "${val.protocol}://${val.host}:${toString val.port}${val.basePath}";
-          proxyWebsockets = true;
-        } else val.nginx;
-      }) cfg.routes;
+      virtualHosts = lib.mapAttrs (_: val:
+        let
+          opts = if hasAttr "extraOptions" val then val.extraOptions else {};
+        in {
+          locations."/" = if val.nginx == {} then {
+            proxyPass =
+              "${val.protocol}://${val.host}:${toString val.port}${val.basePath}";
+            proxyWebsockets = true;
+          } // opts else val.nginx;
+        }
+      ) cfg.routes;
     };
 
     services.nsd = {

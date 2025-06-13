@@ -8,6 +8,7 @@
     ./modules/dashboard
     ./modules/storage
     ./modules/notifications
+    ./modules/monitoring
   ];
 
   nixpkgs.config.allowUnfree = true;

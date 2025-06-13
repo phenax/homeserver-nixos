@@ -14,6 +14,9 @@ in lib.recursiveUpdate privateSettings rec {
       transmissionRPC = 9091;
       syncthing = 3141;
       ntfy = 3142;
+      grafana = 3143;
+      prometheus = 9001;
+      prometheusNodeExporter = 9002;
     };
     exposeTransmissionRPC = false;
   };

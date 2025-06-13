@@ -47,6 +47,20 @@ in
         altUrl = "http://${settings.network.host}:${toString ports.syncthing}";
         color = "#0891d1";
       }
+      {
+        title = "Ntfy-sh";
+        key = "n";
+        url = "http://ntfy.local";
+        altUrl = "http://${settings.network.host}:${toString ports.ntfy}";
+        color = "#2dc9b5";
+      }
+      {
+        title = "Grafana";
+        key = "g";
+        url = "http://grafana.local";
+        altUrl = "http://${settings.network.host}:${toString ports.grafana}";
+        color = "#f05a28";
+      }
     ];
   };
 }
