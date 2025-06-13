@@ -8,5 +8,9 @@ Services:
 - lidarr
 - ntfy-sh
 - syncthing
+- dns server
+- grafana
 - other stuff
+
+![Screenshot](./media/screenshot.jpg)
 
