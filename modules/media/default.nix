@@ -10,6 +10,7 @@ in
     "d ${settings.media.downloadsDir} 0770 transmission ${settings.media.group} - -"
     "d ${settings.media.tvDir} 0770 sonarr ${settings.media.group} - -"
     "d ${settings.media.moviesDir} 0770 radarr ${settings.media.group} - -"
+    "d ${settings.media.musicDir} 0770 radarr ${settings.media.group} - -"
   ];
   users.groups.${settings.media.group} = { };
   users.users.bacchus.extraGroups = [ settings.media.group ];
@@ -31,6 +32,15 @@ in
     settings = {
       server.port = settings.network.ports.radarr;
       auth.enabled = false;
+    };
+  };
+
+  services.lidarr = {
+    enable = true;
+    openFirewall = true;
+    group = settings.media.group;
+    settings = {
+      server.port = settings.network.ports.lidarr;
     };
   };
 
