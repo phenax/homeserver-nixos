@@ -13,6 +13,7 @@ in lib.recursiveUpdate privateSettings rec {
       jellyfin = 8096;
       transmissionRPC = 9091;
       syncthing = 3141;
+      ntfy = 3142;
     };
     exposeTransmissionRPC = false;
   };

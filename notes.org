@@ -1,16 +1,14 @@
 ** Current
-- [ ] Syncthing
-- [ ] Jellyfin library for photos (shared/private)
-- [ ] Jellyfin library for music?
+- [ ] Library for shared photos (shared/private)
+- [ ] Lidarr + jellyfin (after lidarr issue is fixed)
 
 ** Later
 - [ ] NAS
-- [ ] [[https://ntfy.sh]]
 - [ ] Think of where to place the server
 - [ ] Make autoconnect via networkmanager work consistently (higher frequency)
 
 ** Maybe
-- [ ] Git bare repos (pass/notes)
+- [ ] Git bare repos
 - [ ] Auto-updating
 - [ ] Move mail?
 - [ ] Expose dns via dynamic dns [[https://www.duckdns.org/]]?
