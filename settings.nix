@@ -17,6 +17,11 @@ in lib.recursiveUpdate privateSettings rec {
     exposeTransmissionRPC = false;
   };
 
+    git = {
+      baseDir = "/git";
+      group = "git";
+    };
+
   syncthing = {
     baseDir = "/media/syncthing";
     photosDir = "${syncthing.baseDir}/photos";
