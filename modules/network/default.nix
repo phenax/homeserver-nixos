@@ -8,8 +8,14 @@ in
   imports = [
     ./wireless.nix
     ./ssh.nix
-    ./service-router.service.nix
+    ../../services/service-router.service.nix
+    ../../services/bacchus-dns.service.nix
   ];
+
+  networking = {
+    hostName = "bacchus";
+    firewall.enable = true;
+  };
 
   services.service-router = {
     enable = true;
@@ -23,12 +29,15 @@ in
       "syncthing.local" = { inherit host; port = ports.syncthing; };
       "lidarr.local" = { inherit host; port = ports.lidarr; };
       "ntfy.local" = { inherit host; port = ports.ntfy; };
-      "grafana.local" = { inherit host; port = ports.grafana; extraOptions.recommendedProxySettings = true; };
+      "grafana.local" = { inherit host; port = ports.grafana; extraNginxOptions.recommendedProxySettings = true; };
     };
   };
 
-  networking = {
-    hostName = "bacchus";
-    firewall.enable = true;
+  # Host mappings defined by service-router
+  services.bacchus-dns = {
+    enable = true;
+    port = 53;
+    openFirewall = true;
+    fallback = [ "1.1.1.1" "8.8.8.8" ];
   };
 }

@@ -1,17 +1,12 @@
-{ config, lib, dns, ... }:
+{ config, lib, ... }:
 with lib;
 let
   cfg = config.services.service-router;
-  domainAZone = domain: record: {
-    A = [ record ];
-    SOA = {
-      nameServer = "ns.${domain}.";
-      adminEmail = "dont@email.me";
-      serial = 2019030800;
-    };
-    NS = [ "ns.${domain}." ];
-  };
 in {
+  imports = [
+    ./bacchus-dns.service.nix
+  ];
+
   options.services.service-router = {
     enable = mkEnableOption "enable router";
     routes = mkOption {
@@ -20,8 +15,7 @@ in {
         host = mkOption { type = types.str; default = "127.0.0.1"; };
         protocol = mkOption { type = types.str; default = "http"; };
         basePath = mkOption { type = types.str; default = ""; };
-        nginx = mkOption { type = types.attrs; default = {}; };
-        extraOptions = mkOption { type = types.attrs; default = {}; };
+        extraNginxOptions = mkOption { type = types.attrs; default = {}; };
       }; });
       default = {};
     };
@@ -33,27 +27,21 @@ in {
       recommendedOptimisation = true;
       virtualHosts = lib.mapAttrs (_: val:
         let
-          opts = if hasAttr "extraOptions" val then val.extraOptions else {};
+          opts = if hasAttr "extraNginxOptions" val then val.extraNginxOptions else {};
         in {
-          locations."/" = if val.nginx == {} then {
+          locations."/" = {
             proxyPass =
               "${val.protocol}://${val.host}:${toString val.port}${val.basePath}";
             proxyWebsockets = true;
-          } // opts else val.nginx;
+          } // opts;
         }
       ) cfg.routes;
     };
 
-    services.nsd = {
+    # Hostname mapping
+    services.bacchus-dns = {
       enable = true;
-      interfaces = [ "0.0.0.0" ];
-      zones = lib.mapAttrs (domain: val: {
-        data = dns.lib.toString domain (domainAZone domain val.host);
-      }) cfg.routes;
+      hosts = mapAttrs (_: val: val.host) cfg.routes;
     };
-    networking.firewall.allowedTCPPorts = [ 53 ];
-    networking.firewall.allowedUDPPorts = [ 53 ];
-
-    networking.hosts."127.0.0.1" = lib.mapAttrsToList (name: _: name) cfg.routes;
   };
 }

@@ -4,7 +4,7 @@ let
   ports = settings.network.ports;
 in
 {
-  imports = [ ./bacchus-dashboard.service.nix ];
+  imports = [ ../../services/bacchus-dashboard/bacchus-dashboard.service.nix ];
 
   services.bacchus-dashboard = {
     enable = true;

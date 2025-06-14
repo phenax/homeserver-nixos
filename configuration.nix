@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./modules/hardware.nix
-    ./modules/users.nix
+    ./modules/hardware
+    ./modules/users
     ./modules/network
     ./modules/media
     ./modules/dashboard

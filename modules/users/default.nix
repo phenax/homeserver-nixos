@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  settings = import ../settings.nix { inherit lib; };
+  settings = import ../../settings.nix { inherit lib; };
 in
 {
   users.users.root.password = settings.passwords.root;
