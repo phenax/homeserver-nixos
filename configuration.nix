@@ -18,16 +18,7 @@
     lf
     util-linux
     dig
-
-    # Mom mode
-    st
-    ungoogled-chromium
   ];
-
-  # Mom mode
-  services.xserver.enable = true;
-  services.xserver.windowManager.dwm.enable = true;
-  services.xserver.displayManager.startx.enable = true;
 
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_GB.UTF-8";
