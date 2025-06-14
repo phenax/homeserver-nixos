@@ -18,6 +18,7 @@ in lib.recursiveUpdate privateSettings rec {
       grafana = 3143;
       prometheus = 9001;
       prometheusNodeExporter = 9002;
+      send = 1443;
     };
     exposeTransmissionRPC = false;
   };

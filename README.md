@@ -8,6 +8,7 @@ Services:
 - lidarr
 - jellyseer
 - ntfy-sh
+- send
 - syncthing
 - coredns
 - grafana
