@@ -69,6 +69,13 @@ in
         altUrl = "http://${settings.network.host}:${toString ports.grafana}";
         color = "#f05a28";
       }
+      {
+        title = "Send";
+        key = "f";
+        url = "http://send.local";
+        altUrl = "http://${settings.network.host}:${toString ports.send}";
+        color = "#AA5CC3";
+      }
     ];
   };
 }

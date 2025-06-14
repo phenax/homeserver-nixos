@@ -30,6 +30,7 @@ in
       "lidarr.local" = { inherit host; port = ports.lidarr; };
       "ntfy.local" = { inherit host; port = ports.ntfy; };
       "grafana.local" = { inherit host; port = ports.grafana; extraNginxOptions.recommendedProxySettings = true; };
+      "send.local" = { inherit host; port = ports.send; };
     };
   };
 
