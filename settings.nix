@@ -11,6 +11,7 @@ in lib.recursiveUpdate privateSettings rec {
       lidarr = 8686;
       prowlarr = 9696;
       jellyfin = 8096;
+      jellyseerr = 5055;
       transmissionRPC = 9091;
       syncthing = 3141;
       ntfy = 3142;

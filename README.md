@@ -6,6 +6,7 @@ Services:
 - sonarr
 - radarr
 - lidarr
+- jellyseer
 - ntfy-sh
 - syncthing
 - dns server

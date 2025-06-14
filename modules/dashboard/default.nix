@@ -21,11 +21,11 @@ in
         color = "#AA5CC3";
       }
       {
-        title = "Sonarr";
-        key = "s";
-        url = "http://sonarr.local";
-        altUrl = "http://${settings.network.host}:${toString ports.sonarr}";
-        color = "#4c82cf";
+        title = "Jellyseer";
+        key = "l";
+        url = "http://jellyseerr.local";
+        altUrl = "http://${settings.network.host}:${toString ports.jellyseerr}";
+        color = "#5345e6";
       }
       {
         title = "Radarr";
@@ -33,6 +33,13 @@ in
         url = "http://radarr.local";
         altUrl = "http://${settings.network.host}:${toString ports.radarr}";
         color = "#fcbd00";
+      }
+      {
+        title = "Sonarr";
+        key = "s";
+        url = "http://sonarr.local";
+        altUrl = "http://${settings.network.host}:${toString ports.sonarr}";
+        color = "#4c82cf";
       }
       {
         title = "Prowlarr";

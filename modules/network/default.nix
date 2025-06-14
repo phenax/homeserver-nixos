@@ -18,6 +18,7 @@ in
       "radarr.local" = { inherit host; port = ports.radarr; };
       "prowlarr.local" = { inherit host; port = ports.prowlarr; };
       "jellyfin.local" = { inherit host; port = ports.jellyfin; };
+      "jellyseerr.local" = { inherit host; port = ports.jellyseerr; };
       "syncthing.local" = { inherit host; port = ports.syncthing; };
       "lidarr.local" = { inherit host; port = ports.lidarr; };
       "git.local" = { inherit host; port = 80; basePath = "/gitweb/"; };
