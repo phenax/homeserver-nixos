@@ -11,8 +11,6 @@
     ./modules/monitoring
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     bottom
     mtm
@@ -42,6 +40,7 @@
     automatic = true;
     dates = "weekly";
   };
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05";
 }
