@@ -9,7 +9,7 @@ Services:
 - jellyseer
 - ntfy-sh
 - syncthing
-- dns server
+- coredns
 - grafana
 - other stuff
 
