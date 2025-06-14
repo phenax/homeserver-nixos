@@ -21,7 +21,6 @@ in
       "jellyseerr.local" = { inherit host; port = ports.jellyseerr; };
       "syncthing.local" = { inherit host; port = ports.syncthing; };
       "lidarr.local" = { inherit host; port = ports.lidarr; };
-      "git.local" = { inherit host; port = 80; basePath = "/gitweb/"; };
       "ntfy.local" = { inherit host; port = ports.ntfy; };
       "grafana.local" = { inherit host; port = ports.grafana; extraOptions.recommendedProxySettings = true; };
     };

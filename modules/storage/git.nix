@@ -24,18 +24,4 @@ in
       };
     };
   };
-
-  services.gitweb = {
-    gitwebTheme = true;
-    projectroot = settings.git.baseDir;
-  };
-
-  services.nginx = {
-    enable = true;
-    gitweb = {
-      enable = true;
-      group = settings.git.group;
-      virtualHost = "_";
-    };
-  };
 }

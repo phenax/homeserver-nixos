@@ -35,6 +35,7 @@ let
       font-size: 16px;
       color: #dbe0f9;
       font-family: JetBrains Mono, monospace;
+      --color-gray: #1a1824;
     }
     html, body {
       background-color: #0f0c19;
@@ -53,7 +54,6 @@ let
       padding: 0 1rem;
       width: 100%;
       margin: 1rem auto 2rem;
-      max-width: 1200px
     }
     .card {
       --color-card-accent: #8e7ae3;
@@ -62,7 +62,7 @@ let
       font-size: 1.2rem;
       color: var(--color-card-accent);
       text-decoration: none;
-      border: 2px solid #1a1824;
+      border: 2px solid var(--color-gray);
       position: relative;
     }
     .card::before {
@@ -95,14 +95,14 @@ let
     }
     .stats-container {
       padding: 1rem;
-      border-top: 1px solid #1a1824;
+      border-top: 1px solid var(--color-gray);
     }
     .stats-container iframe {
       width: 100%;
       display: block;
       min-height: 1100px;
       height: 100%;
-      border: 2px solid #1a1824;
+      border: 2px solid var(--color-gray);
       border-radius: 5px;
     }
   '';
