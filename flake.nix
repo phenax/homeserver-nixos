@@ -7,6 +7,9 @@
   outputs = { self, nixpkgs, nixos-hardware, ... }: {
     nixosConfigurations.bacchus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        settings = import ./settings.nix { inherit (nixpkgs) lib; };
+      };
       modules = [
         "${nixos-hardware}/lenovo/ideapad"
         ./configuration.nix

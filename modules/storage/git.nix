@@ -1,7 +1,4 @@
-{ lib, ... }:
-let
-  settings = import ../../settings.nix { inherit lib; };
-in
+{ settings, ... }:
 {
   systemd.tmpfiles.rules = [
     "d ${settings.git.baseDir} 0770 - ${settings.git.group} - -"

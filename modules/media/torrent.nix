@@ -1,7 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  settings = import ../../settings.nix { inherit lib; };
-in
+{ pkgs, settings, ... }:
 {
   environment.systemPackages = with pkgs; [
     tremc

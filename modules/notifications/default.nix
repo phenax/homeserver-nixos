@@ -1,6 +1,5 @@
-{ lib, pkgs, ... }:
+{ settings, pkgs, ... }:
 let
-  settings = import ../../settings.nix { inherit lib; };
   host = settings.network.host;
   ports = settings.network.ports;
   url = "http://${host}:${toString ports.ntfy}";

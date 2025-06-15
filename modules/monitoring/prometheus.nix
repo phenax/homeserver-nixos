@@ -1,6 +1,5 @@
-{ lib, ... }:
+{ settings, ... }:
 let
-  settings = import ../../settings.nix { inherit lib; };
   ports = settings.network.ports;
 in
 {

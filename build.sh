@@ -48,8 +48,7 @@ chaincmds() {
 }
 
 gen_test_dash() {
-  nix eval --impure \
-    --expr 'import ./modules/dashboard/dashboard-template.nix { title = "Dashboard"; links = [{ title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; } { title = "DuckDuckGo"; url = "https://duckduckgo.com"; key = "d"; color = "#4c82cf"; } { title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; } { title = "Google"; url = "https://google.com"; altUrl = "http://foobar.com"; key = "g"; }]; }' \
+  nix eval --impure --expr 'import ./scripts/generate-test-dashboard.nix' \
   | jq -r > index.ignore.html
 }
 open_test_dash() { brave "file://$PWD/index.ignore.html"; }

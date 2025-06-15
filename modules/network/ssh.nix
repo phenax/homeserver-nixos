@@ -1,7 +1,4 @@
-{ lib, ... }:
-let
-  settings = import ../../settings.nix { inherit lib; };
-in
+{ settings, ... }:
 {
   services.sshd.enable = true;
 

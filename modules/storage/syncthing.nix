@@ -1,7 +1,6 @@
-{ lib, ... }:
+{ settings, ... }:
 let
-  settings = import ../../settings.nix { inherit lib; };
-  group = "syncthing";
+  group = settings.syncthing.group;
 in
 {
   systemd.tmpfiles.rules = [

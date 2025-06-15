@@ -1,8 +1,4 @@
-{ lib, ... }:
-let
-  settings = import ../../settings.nix { inherit lib; };
-  wireless = settings.network.wireless;
-in
+{ settings, ... }:
 {
   networking.networkmanager = {
     enable = true;
@@ -17,12 +13,12 @@ in
         };
         wifi = {
           mode = "infrastructure";
-          ssid = wireless.ssid;
+          ssid = settings.network.wireless.ssid;
         };
         wifi-security = {
           auth-alg = "open";
           key-mgmt = "wpa-psk";
-          psk = wireless.password;
+          psk = settings.network.wireless.password;
         };
       };
     };

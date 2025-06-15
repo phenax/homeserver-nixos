@@ -1,7 +1,4 @@
-{ lib, ... }:
-let
-  settings = import ../../settings.nix { inherit lib; };
-in
+{ settings, ... }:
 {
   imports = [ ./torrent.nix ];
 
