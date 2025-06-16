@@ -30,6 +30,7 @@ in
       "ntfy.local" = { inherit host; port = ports.ntfy; };
       "grafana.local" = { inherit host; port = ports.grafana; extraNginxOptions.recommendedProxySettings = true; };
       "send.local" = { inherit host; port = ports.send; };
+      "photos.local" = { inherit host; port = ports.immich; };
     };
   };
 

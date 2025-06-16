@@ -66,4 +66,11 @@ in [
     altUrl = "http://${host}:${toString ports.send}";
     color = "#AA5CC3";
   }
+  {
+    title = "Immich";
+    key = "i";
+    url = "http://photos.local";
+    altUrl = "http://${host}:${toString ports.immich}";
+    color = "#fa2921";
+  }
 ]

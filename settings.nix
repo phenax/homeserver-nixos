@@ -19,6 +19,7 @@ in lib.recursiveUpdate privateSettings rec {
       prometheus = 9001;
       prometheusNodeExporter = 9002;
       send = 1443;
+      immich = 3144;
     };
     exposeTransmissionRPC = false;
   };
@@ -26,6 +27,12 @@ in lib.recursiveUpdate privateSettings rec {
   git = {
     baseDir = "/git";
     group = "git";
+  };
+
+  immich = {
+    baseDir = "/media/_immich";
+    user = "immich";
+    group = "immich";
   };
 
   syncthing = {

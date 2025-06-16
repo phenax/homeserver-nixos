@@ -11,12 +11,6 @@
     ./modules/monitoring
   ];
 
-  # services.shiori = {
-  #   enable = true;
-  #   port = 3144;
-  # };
-  # networking.firewall.allowedTCPPorts = [ 3144 ];
-
   environment.systemPackages = with pkgs; [
     bottom
     mtm
