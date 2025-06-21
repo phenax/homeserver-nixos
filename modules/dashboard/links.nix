@@ -11,6 +11,13 @@ in [
     color = "#AA5CC3";
   }
   {
+    title = "Immich";
+    key = "i";
+    url = "http://photos.local";
+    altUrl = "http://${host}:${toString ports.immich}";
+    color = "#fa2921";
+  }
+  {
     title = "Jellyseer";
     key = "l";
     url = "http://jellyseerr.local";
@@ -64,13 +71,6 @@ in [
     key = "f";
     url = "http://send.local";
     altUrl = "http://${host}:${toString ports.send}";
-    color = "#AA5CC3";
-  }
-  {
-    title = "Immich";
-    key = "i";
-    url = "http://photos.local";
-    altUrl = "http://${host}:${toString ports.immich}";
-    color = "#fa2921";
+    color = "#0a84ff";
   }
 ]

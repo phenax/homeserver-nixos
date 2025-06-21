@@ -9,11 +9,9 @@
       system = "x86_64-linux";
       specialArgs = {
         settings = import ./settings.nix { inherit (nixpkgs) lib; };
+        inherit nixos-hardware;
       };
-      modules = [
-        "${nixos-hardware}/lenovo/ideapad"
-        ./configuration.nix
-      ];
+      modules = [ ./modules/config.nix ];
     };
   };
 }

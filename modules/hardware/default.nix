@@ -1,7 +1,8 @@
-{ lib, modulesPath, ... }:
+{ lib, nixos-hardware, modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    "${nixos-hardware}/lenovo/ideapad"
     ./fs.nix
   ];
 
