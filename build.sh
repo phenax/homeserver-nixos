@@ -66,7 +66,7 @@ case "$cmd" in
   fs) run_ssh lf ;;
   test-dash) gen_test_dash ;;
   open-test-dash) open_test_dash ;;
-  dash) brave "http://$HOME_HOST" ;;
+  dash) brave "http://home.local" ;;
   copy_in) copy_in "$@" ;;
   copy_out) copy_out "$@" ;;
   _) chaincmds "$@" ;;

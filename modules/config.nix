@@ -9,6 +9,7 @@
     ./storage
     ./notifications
     ./monitoring
+    ./rss
     ./packages.nix
   ];
 

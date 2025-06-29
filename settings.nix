@@ -20,6 +20,7 @@ in lib.recursiveUpdate privateSettings rec {
       prometheusNodeExporter = 9002;
       send = 1443;
       immich = 3144;
+      yarr = 7070;
     };
     exposeTransmissionRPC = false;
   };

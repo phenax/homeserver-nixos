@@ -66,11 +66,18 @@ in [
     altUrl = "http://${host}:${toString ports.grafana}";
     color = "#f05a28";
   }
+  # {
+  #   title = "Send";
+  #   key = "f";
+  #   url = "http://send.local";
+  #   altUrl = "http://${host}:${toString ports.send}";
+  #   color = "#0a84ff";
+  # }
   {
-    title = "Send";
-    key = "f";
-    url = "http://send.local";
-    altUrl = "http://${host}:${toString ports.send}";
-    color = "#0a84ff";
+    title = "News RSS";
+    key = "w";
+    url = "http://news.local";
+    altUrl = "http://${host}:${toString ports.yarr}";
+    color = "#475569";
   }
 ]
