@@ -1,4 +1,4 @@
-{ settings, ... }:
+{ settings, lib, ... }:
 let
   group = settings.syncthing.group;
 in
@@ -25,8 +25,13 @@ in
         artemis-photos = {
           label = "Photos";
           path = settings.syncthing.photosDir;
+          devices = lib.attrNames settings.syncthing.devices;
         };
       };
+
+      overrideDevices = false;
+      overrideFolders = false;
+      devices = settings.syncthing.devices;
 
       options.urAccepted = -1;
 
