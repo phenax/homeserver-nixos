@@ -35,7 +35,7 @@ rebuild() {
 
 update_system() {
   run_ssh nix flake update --flake 'path:/home/bacchus/nixos';
-  rebuild;
+  config_sync && rebuild;
 }
 
 restart() { run_ssh sudo systemctl reboot; }
@@ -53,6 +53,11 @@ gen_test_dash() {
 }
 open_test_dash() { brave "file://$PWD/index.ignore.html"; }
 
+update_yayarr() {
+  run_ssh nix flake update phenax-yayarr --flake 'path:/home/bacchus/nixos';
+  config_sync && rebuild;
+}
+
 cmd="$1"; shift;
 case "$cmd" in
   sync) config_sync ;;
@@ -60,6 +65,7 @@ case "$cmd" in
   build) rebuild ;;
   update) update_system ;;
   restart) restart && sleep 3 && waittostart ;;
+  update_yayarr) update_yayarr ;;
   wait) waittostart ;;
   clean) run_ssh sudo nix-collect-garbage -d ;;
   top) run_ssh btm ;;

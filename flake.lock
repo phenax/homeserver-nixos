@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751255142,
-        "narHash": "sha256-1NGdfr5BdQFf+cRl2+71P4VG+J2BI8EHDIFTto5MRv4=",
+        "lastModified": 1751467228,
+        "narHash": "sha256-lSpl9VvM8w2EubJknlprmSEKsG8hAXIafSIL3kzfkPA=",
         "owner": "phenax",
         "repo": "yayarr",
-        "rev": "a109c9e45b554b7db428dd3d165464f3c8ca7eb7",
+        "rev": "9999ab4cfd8375062b4b2f8cd16788c11c436819",
         "type": "github"
       },
       "original": {
