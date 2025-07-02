@@ -80,6 +80,7 @@ in
       (youtube "UCr3cBLTYmIK9kY0F_OdFWFQ" "Casually Explained")
       (youtube "UCYO_jab_esuFRV4b17AJtAw" "3Blue 1Brown")
       (youtube "UCHnyfMqiRRG1u-2MsSQLbXA" "Veritasium")
+      (youtube "UCswG6FSbgZjbWtdf_hMLaow" "TS: Matt Pocock")
     ];
 
     "Others" = [
