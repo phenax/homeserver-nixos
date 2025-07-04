@@ -48,6 +48,8 @@ in
       # { url = "https://news.ycombinator.com/rss"; title = "Hacker news"; }
       { url = "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml"; title = "Github trending"; }
       { url = "https://blog.haskell.org/atom.xml"; title = "Haskell news"; }
+      { url = "https://this-week-in-rust.org/rss.xml"; title = "Rust weekly"; }
+      { url = "https://world.hey.com/this.week.in.rails/feed.atom"; title = "Rails weekly"; }
     ];
 
     "Linux" = [
@@ -72,15 +74,18 @@ in
       (youtube "UCh9IfI45mmk59eDvSWtuuhQ" "Ryan George")
       (youtube "UCM15YNy8g-CaJ15YZCbq0Iw" "North of the border")
       (youtube "UC-lHJZR3Gqxm24_Vd_AJ5Yw" "Pewdiepie")
+
       (youtube "UCUMwY9iS8oMyWDYIe6_RmoA" "No boilerplate")
       (youtube "UCo71RUe6DX4w-Vd47rFLXPg" "TypeCraft")
+      (youtube "UCswG6FSbgZjbWtdf_hMLaow" "TS: Matt Pocock")
       (youtube "UCWQaM7SpSECp9FELz-cHzuQ" "Dreams of code")
       (youtube "UCjr2bPAyPV7t35MvcgT3W8Q" "The Hated One")
+
       (youtube "UCimiUgDLbi6P17BdaCZpVbg" "exurb1a")
       (youtube "UCr3cBLTYmIK9kY0F_OdFWFQ" "Casually Explained")
       (youtube "UCYO_jab_esuFRV4b17AJtAw" "3Blue 1Brown")
       (youtube "UCHnyfMqiRRG1u-2MsSQLbXA" "Veritasium")
-      (youtube "UCswG6FSbgZjbWtdf_hMLaow" "TS: Matt Pocock")
+      (youtube "UCsXVk37bltHxD1rDPwtNM8Q" "Kurzgesagt")
     ];
 
     "Others" = [
