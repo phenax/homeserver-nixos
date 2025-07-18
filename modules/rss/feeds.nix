@@ -86,6 +86,7 @@ in
       (youtube "UCYO_jab_esuFRV4b17AJtAw" "3Blue 1Brown")
       (youtube "UCHnyfMqiRRG1u-2MsSQLbXA" "Veritasium")
       (youtube "UCsXVk37bltHxD1rDPwtNM8Q" "Kurzgesagt")
+      (youtube "UC6nSFpj9HTCZ5t-N3Rm3-HA" "Vsauce")
     ];
 
     "Others" = [

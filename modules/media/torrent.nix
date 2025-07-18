@@ -1,5 +1,9 @@
 { pkgs, settings, ... }:
 {
+  systemd.tmpfiles.rules = [
+    "d ${settings.media.downloadsDir} 0770 transmission ${settings.media.group} - -"
+  ];
+
   environment.systemPackages = with pkgs; [
     tremc
   ];
