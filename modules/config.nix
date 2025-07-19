@@ -8,7 +8,7 @@
     ./dashboard
     ./storage
     ./notifications
-    ./monitoring
+    # ./monitoring
     ./rss
     ./packages.nix
   ];

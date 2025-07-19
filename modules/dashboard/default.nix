@@ -2,7 +2,7 @@
 with lib;
 let
   links = import ./links.nix { inherit settings; };
-  isKeysUnique =
+  areKeysUnique =
     let linkKeys = map (l: l.key) (filter (hasAttr "key") links);
     in length linkKeys == length (lib.unique linkKeys);
 in
@@ -10,7 +10,7 @@ in
   imports = [ ../../services/bacchus-dashboard/bacchus-dashboard.service.nix ];
 
   assertions = [
-    { assertion = isKeysUnique; message = "The dashboard link 'key' property must be unique"; }
+    { assertion = areKeysUnique; message = "The dashboard link 'key' property must be unique"; }
   ];
 
   services.bacchus-dashboard = {
@@ -18,7 +18,7 @@ in
     openFirewall = true;
     port = settings.network.ports.dashboard;
     title = "Bacchus Dashboard";
-    embedLink = settings.grafana.dashboardEmbedLink;
+    # embedLink = settings.grafana.dashboardEmbedLink;
     links = links;
   };
 }
