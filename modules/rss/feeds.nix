@@ -23,6 +23,7 @@ in
       { url = "https://programmingisterrible.com/rss"; title = "Programming is terrible"; }
       { url = "https://reacttraining.com/rss.xml"; title = "React Training"; }
       { url = "https://www.developerway.com/rss.xml"; title = "Developer way"; }
+      { url = "https://gpanders.com/index.xml"; title = "GPanders (neovim)"; }
     ];
 
     "Reddit" = [
