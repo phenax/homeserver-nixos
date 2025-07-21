@@ -24,7 +24,7 @@ in
       type = types.listOf (types.attrs);
       default = [];
     };
-    embedLink = mkOption { type = types.str; };
+    embedLink = mkOption { type = types.str; default = ""; };
     openFirewall = mkEnableOption "Open firewall ports";
     host = mkOption { type = types.str; default = "_"; };
     port = mkOption { type = types.int; default = 80; };

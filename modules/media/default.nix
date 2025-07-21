@@ -1,6 +1,9 @@
 { settings, ... }:
 {
-  imports = [ ./torrent.nix ];
+  imports = [
+    ./torrent.nix
+    ./servarr.nix
+  ];
 
   systemd.tmpfiles.rules = [
     "d ${settings.media.baseDir} 0755 - ${settings.media.group} - -"

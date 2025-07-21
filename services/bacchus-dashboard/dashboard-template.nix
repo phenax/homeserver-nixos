@@ -125,7 +125,7 @@ in
     <section class="links-container">
       ${concatStringsSep "" (map linkHTML links)}
     </section>
-    ${if embedLink == null then "" else ''
+    ${if embedLink == null || embedLink == "" then "" else ''
       <section class="stats-container">
         <iframe src="${embedLink}"></iframe>
       </section>
