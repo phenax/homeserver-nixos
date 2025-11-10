@@ -21,6 +21,7 @@ in lib.recursiveUpdate privateSettings rec {
       send = 1443;
       immich = 3144;
       yarr = 7070;
+      lazylibrarian = 5299;
     };
     exposeTransmissionRPC = false;
   };
@@ -48,6 +49,8 @@ in lib.recursiveUpdate privateSettings rec {
     tvDir = "${baseDir}/tv";
     moviesDir = "${baseDir}/movies";
     musicDir = "${baseDir}/music";
+    booksDir = "${baseDir}/books";
     group = "multimedia";
+    # booksGroup = "books";
   };
 }

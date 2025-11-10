@@ -26,14 +26,14 @@
     cpuFreqGovernor = "powersave";
   };
   services.acpid.enable = true;
-  services.logind = {
-    powerKey = "ignore";
-    rebootKey = "ignore";
-    lidSwitch = "ignore";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "ignore";
-    hibernateKey = "ignore";
-    suspendKey = "ignore";
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    HandleRebootKey = "ignore";
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleHibernateKey = "ignore";
+    HandleSuspendKey = "ignore";
   };
 
   # Bootloader

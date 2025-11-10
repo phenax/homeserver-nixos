@@ -27,6 +27,11 @@ in
           path = settings.syncthing.photosDir;
           devices = lib.attrNames settings.syncthing.devices;
         };
+        artemis-books = {
+          label = "Books";
+          path = settings.media.booksDir;
+          devices = lib.attrNames settings.syncthing.devices;
+        };
       };
 
       overrideDevices = false;

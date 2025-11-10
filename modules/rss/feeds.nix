@@ -25,6 +25,8 @@ in
       { url = "https://www.developerway.com/rss.xml"; title = "Developer way"; }
       { url = "https://gpanders.com/index.xml"; title = "GPanders (neovim)"; }
       { url = "https://bower.sh/rss"; title = "Bower blog"; }
+      { url = "https://developer.mozilla.org/en-US/blog/rss.xml"; title = "MDN blog"; }
+      { url = "https://echasnovski.com/blog.xml"; title = "Mini.nvim guy blog"; }
     ];
 
     "Reddit" = [
@@ -42,6 +44,7 @@ in
     ];
 
     "Dev news" = [
+      { url = "https://bsky.app/profile/did:plc:635xovhsdw27inbgxukm3qtp/rss"; title = "Neovim bsky"; }
       { url = "https://cprss.s3.amazonaws.com/javascriptweekly.com.xml"; title = "JS weekly"; }
       { url = "https://cprss.s3.amazonaws.com/react.statuscode.com.xml"; title = "React status"; }
       { url = "https://www.totaltypescript.com/rss.xml"; title = "Total typescript"; }

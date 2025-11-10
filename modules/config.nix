@@ -16,6 +16,11 @@
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_GB.UTF-8";
 
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers = {
+    backend = "docker";
+  };
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];

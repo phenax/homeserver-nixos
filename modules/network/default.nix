@@ -32,6 +32,7 @@ in
       # "send.local" = { inherit host; port = ports.send; };
       "photos.local" = { inherit host; port = ports.immich; };
       "news.local" = { inherit host; port = ports.yarr; };
+      "librarian.local" = { inherit host; port = ports.lazylibrarian; };
     };
   };
 

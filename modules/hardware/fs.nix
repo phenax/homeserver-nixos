@@ -18,8 +18,8 @@
   swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
 
   # Set high limits for file watching/file handles
-  systemd.extraConfig = ''DefaultLimitNOFILE=65536'';
-  systemd.user.extraConfig = ''DefaultLimitNOFILE=65536'';
+  # systemd.extraConfig = ''DefaultLimitNOFILE=65536'';
+  # systemd.user.extraConfig = ''DefaultLimitNOFILE=65536'';
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
   security.pam.loginLimits = [
     { domain = "*"; type = "-"; item = "nofile"; value = "65536"; }

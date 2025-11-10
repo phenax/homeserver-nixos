@@ -11,6 +11,7 @@
   services.transmission = {
     enable = true;
     group = settings.media.group;
+    package = pkgs.transmission_4;
     openRPCPort = true;
     settings = {
       "download-dir" = settings.media.downloadsDir;
