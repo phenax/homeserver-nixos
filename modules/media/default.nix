@@ -4,7 +4,7 @@
     ./torrent.nix
     ./servarr.nix
     ./jellyfin.nix
-    # ./books.nix
+    ./books.nix
   ];
 
   systemd.tmpfiles.rules = [
