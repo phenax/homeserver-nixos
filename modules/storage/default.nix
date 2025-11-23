@@ -5,5 +5,6 @@
     ./immich.nix
     ./send.nix
     ./syncthing.nix
+    ./docs.nix
   ];
 }

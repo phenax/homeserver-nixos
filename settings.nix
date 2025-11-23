@@ -22,6 +22,7 @@ in lib.recursiveUpdate privateSettings rec {
       immich = 3144;
       yarr = 7070;
       lazylibrarian = 5299;
+      paperless = 28981;
     };
     exposeTransmissionRPC = false;
   };
@@ -52,5 +53,11 @@ in lib.recursiveUpdate privateSettings rec {
     booksDir = "${baseDir}/books";
     group = "multimedia";
     # booksGroup = "books";
+  };
+
+  paperless = rec {
+    docsDir = "/media/docs";
+    user = "paperless";
+    group = "paperless";
   };
 }

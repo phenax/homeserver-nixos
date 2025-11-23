@@ -32,6 +32,11 @@ in
           path = settings.media.booksDir;
           devices = lib.attrNames settings.syncthing.devices;
         };
+        artemis-docs = {
+          label = "Documents";
+          path = settings.paperless.docsDir;
+          devices = lib.attrNames settings.syncthing.devices;
+        };
       };
 
       overrideDevices = false;

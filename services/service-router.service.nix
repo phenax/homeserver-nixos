@@ -16,6 +16,7 @@ in {
         protocol = mkOption { type = types.str; default = "http"; };
         basePath = mkOption { type = types.str; default = ""; };
         extraNginxOptions = mkOption { type = types.attrs; default = {}; };
+        configureNginx = mkOption { type = types.bool; default = true; };
       }; });
       default = {};
     };
@@ -26,7 +27,7 @@ in {
       enable = true;
       recommendedOptimisation = true;
       virtualHosts = lib.mapAttrs (_: val:
-        let
+        lib.mkIf val.configureNginx (let
           opts = if hasAttr "extraNginxOptions" val then val.extraNginxOptions else {};
         in {
           locations."/" = {
@@ -34,7 +35,7 @@ in {
               "${val.protocol}://${val.host}:${toString val.port}${val.basePath}";
             proxyWebsockets = true;
           } // opts;
-        }
+        })
       ) cfg.routes;
     };
 

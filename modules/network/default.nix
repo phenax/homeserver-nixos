@@ -33,6 +33,7 @@ in
       "photos.local" = { inherit host; port = ports.immich; };
       "news.local" = { inherit host; port = ports.yarr; };
       "librarian.local" = { inherit host; port = ports.lazylibrarian; };
+      "paperless.local" = { inherit host; port = ports.paperless; configureNginx = true; };
     };
   };
 
