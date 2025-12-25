@@ -19,6 +19,7 @@ in
     dataDir = settings.syncthing.baseDir;
     guiAddress = "0.0.0.0:${toString settings.network.ports.syncthing}";
     overrideFolders = true;
+    openDefaultPorts = true;
 
     settings = {
       folders = {

@@ -1,16 +1,16 @@
 { settings, pkgs, ... }:
 {
   imports = [
-    ../../services/lazylibrarian/default.nix
+    # ../../services/lazylibrarian/default.nix
   ];
 
-  systemd.tmpfiles.rules = [
-    "d ${settings.media.booksDir} 0770 - ${settings.media.group} - -"
-  ];
+  # systemd.tmpfiles.rules = [
+  #   "d ${settings.media.booksDir} 0770 - ${settings.media.group} - -"
+  # ];
 
-  services.lazylibrarian = {
-    enable = true;
-  };
+  # services.lazylibrarian = {
+  #   enable = true;
+  # };
 
   # virtualisation.oci-containers.containers.lazy-librarian = {
   #   image = "linuxserver/lazylibrarian";

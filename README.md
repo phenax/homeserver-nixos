@@ -5,7 +5,6 @@ Services:
 - jellyfin
 - sonarr
 - radarr
-- lidarr
 - jellyseer
 - ntfy-sh
 - send
