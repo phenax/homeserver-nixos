@@ -16,6 +16,7 @@ in
     firewall.enable = true;
   };
 
+  # Service mappings (dns + nginx)
   services.service-router = {
     enable = true;
     routes = {
@@ -34,6 +35,7 @@ in
       "news.local" = { inherit host; port = ports.yarr; };
       # "librarian.local" = { inherit host; port = ports.lazylibrarian; };
       "paperless.local" = { inherit host; port = ports.paperless; configureNginx = true; };
+      "calendar.local" = { inherit host; port = ports.caldav; };
     };
   };
 

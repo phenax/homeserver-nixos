@@ -10,6 +10,7 @@
     ./notifications
     # ./monitoring
     ./rss
+    ./calendar
     ./packages.nix
   ];
 
