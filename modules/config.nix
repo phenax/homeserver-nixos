@@ -11,6 +11,7 @@
     # ./monitoring
     ./rss
     ./calendar
+    ./search
     ./packages.nix
   ];
 

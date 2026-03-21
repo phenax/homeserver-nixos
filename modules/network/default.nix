@@ -36,7 +36,13 @@ in
       # "librarian.local" = { inherit host; port = ports.lazylibrarian; };
       "paperless.local" = { inherit host; port = ports.paperless; configureNginx = true; };
       "calendar.local" = { inherit host; port = ports.caldav; };
+      "search.local" = { inherit host; port = ports.search; };
     };
+  };
+
+  # DNS-only mappings
+  services.bacchus-dns.hosts = {
+    "smartfridge.local" = settings.network.smartfridgeIP;
   };
 
   # Host mappings defined by service-router

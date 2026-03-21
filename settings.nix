@@ -24,6 +24,7 @@ in lib.recursiveUpdate privateSettings rec {
       lazylibrarian = 5299;
       paperless = 28981;
       caldav = 9314;
+      search = 8087;
     };
     exposeTransmissionRPC = false;
   };
