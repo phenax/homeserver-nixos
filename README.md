@@ -10,7 +10,8 @@ Services:
 - send
 - syncthing
 - coredns
-- grafana
+- kavita
+- omnisearch
 - other stuff
 
 ![Screenshot](./media/screenshot.jpg)

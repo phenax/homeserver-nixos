@@ -59,13 +59,6 @@ in [
     altUrl = "http://${host}:${toString ports.ntfy}";
     color = "#2dc9b5";
   }
-  # {
-  #   title = "Grafana";
-  #   key = "g";
-  #   url = "http://grafana.local";
-  #   altUrl = "http://${host}:${toString ports.grafana}";
-  #   color = "#f05a28";
-  # }
   {
     title = "Send";
     key = "f";
@@ -80,11 +73,4 @@ in [
     altUrl = "http://${host}:${toString ports.yarr}";
     color = "#475569";
   }
-  # {
-  #   title = "Lazy Librarian";
-  #   key = "b";
-  #   url = "http://librarian.local";
-  #   altUrl = "http://${host}:${toString ports.lazylibrarian}";
-  #   color = "#55a4db";
-  # }
 ]

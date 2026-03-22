@@ -15,13 +15,10 @@ in lib.recursiveUpdate privateSettings rec {
       transmissionRPC = 9091;
       syncthing = 3141;
       ntfy = 3142;
-      grafana = 3143;
-      prometheus = 9001;
-      prometheusNodeExporter = 9002;
       send = 1443;
       immich = 3144;
       yarr = 7070;
-      lazylibrarian = 5299;
+      library = 5299;
       paperless = 28981;
       caldav = 9314;
       search = 8087;

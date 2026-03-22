@@ -29,14 +29,13 @@ in
       "syncthing.local" = { inherit host; port = ports.syncthing; };
       # "lidarr.local" = { inherit host; port = ports.lidarr; };
       "ntfy.local" = { inherit host; port = ports.ntfy; };
-      "grafana.local" = { inherit host; port = ports.grafana; extraNginxOptions.recommendedProxySettings = true; };
       "send.local" = { inherit host; port = ports.send; };
       "photos.local" = { inherit host; port = ports.immich; };
       "news.local" = { inherit host; port = ports.yarr; };
-      # "librarian.local" = { inherit host; port = ports.lazylibrarian; };
       "paperless.local" = { inherit host; port = ports.paperless; configureNginx = true; };
       "calendar.local" = { inherit host; port = ports.caldav; };
       "search.local" = { inherit host; port = ports.search; };
+      "library.local" = { inherit host; port = ports.library; };
     };
   };
 

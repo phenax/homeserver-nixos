@@ -26,15 +26,6 @@
     };
   };
 
-  # services.lidarr = {
-  #   enable = true;
-  #   openFirewall = true;
-  #   group = settings.media.group;
-  #   settings = {
-  #     server.port = settings.network.ports.lidarr;
-  #   };
-  # };
-
   services.prowlarr = {
     enable = true;
     openFirewall = true;

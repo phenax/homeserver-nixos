@@ -18,7 +18,6 @@ in
     openFirewall = true;
     port = settings.network.ports.dashboard;
     title = "Bacchus Dashboard";
-    # embedLink = settings.grafana.dashboardEmbedLink;
     links = links;
   };
 }
