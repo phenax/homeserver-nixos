@@ -103,7 +103,7 @@ header {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 15px 60px;
+  padding: 15px 50px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-main);
 }
@@ -284,9 +284,9 @@ h1 span {
 
 .content-layout {
   display: grid;
-  grid-template-columns: 80px minmax(0, 1000px) 450px;
+  grid-template-columns: 0 minmax(0, 1000px) 450px;
   gap: 20px;
-  padding: 30px 60px;
+  padding: 30px;
 }
 
 .results-container {
